@@ -34,11 +34,11 @@ function render() {
     // check to boolean value, if true, include disabled as an attribute to button
     if (tasks[i].completed) {
       $(".js-todo-list").append(`
-        <li>${tasks[i].name}<button class="js-btn-complete" data-index="${i}" disabled>Complete</button></li>
+        <li class="isComplete">${tasks[i].name}<button class="js-btn-complete btn" data-index="${i}" disabled>Complete</button></li>
         `);
     } else {
       $(".js-todo-list").append(`
-      <li>${tasks[i].name}<button class="js-btn-complete" data-index="${i}">Complete</button></li>
+      <li>${tasks[i].name}<button class="js-btn-complete btn" data-index="${i}">Complete</button></li>
       `);
     }
   }

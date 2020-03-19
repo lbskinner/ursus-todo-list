@@ -16,20 +16,22 @@
     </header>
 
     <!-- ASSIGNMENT CONTENT GOES BELOW HERE -->
-    <div>
-      <label for="new-task">New Task</label>
+    <div class="panel">
+      <label for="new-task" class="fieldLabel">New Task</label>
       <input
         type="text"
         id="new-task"
         name="new-task"
         placeholder="Enter New Task"
+        class="field"
       />
-      <button class="js-add-task">Add Task</button>
+      <button class="js-add-task btn_fullWidth btn">Add Task</button>
+
+      <h3>My Todo List</h3>
+      <ul class="js-todo-list stackedList">
+        <li>There are no tasks</li>
+      </ul>
     </div>
-    <h3>My Todo List</h3>
-    <ul class="js-todo-list">
-      <li>There are no tasks</li>
-    </ul>
     <footer class="footer">
       &copy; Prime Digital Academy
     </footer>
