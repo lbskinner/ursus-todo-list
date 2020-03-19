@@ -13,17 +13,23 @@ function init() {
 function addTask() {
   console.log("ADD NEW TASK");
   let taskName = $("#new-task").val();
-  // create a task object
-  let taskObj = {
-    name: taskName,
-    completed: false
-  };
-  // add new task to array of tasks
-  tasks.push(taskObj);
-  // clear input field
-  $("#new-task").val("");
-  // call render to add the new task to DOM
-  render();
+  // check if input has value
+  if (taskName != 0) {
+    // create a task object
+    let taskObj = {
+      name: taskName,
+      completed: false
+    };
+    // add new task to array of tasks
+    tasks.push(taskObj);
+    // clear input field
+    $("#new-task").val("");
+    // call render to add the new task to DOM
+    render();
+  } else {
+    // if input value is falsy do not allow adding new task
+    alert("Please enter a new task!");
+  }
 }
 
 function render() {
