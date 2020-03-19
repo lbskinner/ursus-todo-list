@@ -31,9 +31,16 @@ function render() {
   // empty ul
   $(".js-todo-list").empty();
   for (let i = 0; i < tasks.length; i++) {
-    $(".js-todo-list").append(`
+    // check to boolean value, if true, include disabled as an attribute to button
+    if (tasks[i].completed) {
+      $(".js-todo-list").append(`
+        <li>${tasks[i].name}<button class="js-btn-complete" data-index="${i}" disabled>Complete</button></li>
+        `);
+    } else {
+      $(".js-todo-list").append(`
       <li>${tasks[i].name}<button class="js-btn-complete" data-index="${i}">Complete</button></li>
       `);
+    }
   }
 }
 
@@ -45,10 +52,15 @@ function clickCompleteButton() {
   const taskIndex = $(this).data("index");
   console.log(taskIndex);
   // checks the boolean value of the task
-  console.log(tasks[taskIndex].completed);
+  console.log("COMPLETED:", tasks[taskIndex].completed);
   // toggles the boolean value
   tasks[taskIndex].completed = !tasks[taskIndex].completed;
   // check the boolean value of the task again
-  console.log(tasks[taskIndex].completed);
+  console.log("COMPLETED:", tasks[taskIndex].completed);
+  //   disable complete button if boolean is true
+  if (tasks[taskIndex].completed) {
+    $(this).prop("disabled", true);
+  }
+  // render the list to the page
   render();
 }
